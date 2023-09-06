@@ -8,7 +8,7 @@ import {
 } from './Errors.js';
 
 export default class TicketValidator {
-  static validateTicketRequests(accountId, ticketCounts) {
+  static validateRequest(accountId, ticketCounts) {
     if (accountId <= 0) {
       throw new InvalidPurchaseException(INVALID_ACCOUNT_ID);
     }

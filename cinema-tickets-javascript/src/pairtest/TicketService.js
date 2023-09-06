@@ -26,7 +26,7 @@ export default class TicketService {
   purchaseTickets(accountId, ...ticketTypeRequests) {
     const ticketCountObject = this.#getTicketCountObject(ticketTypeRequests);
     this.#logger.info(`Account ID: ${accountId}, Tickets - ${ADULT}: ${ticketCountObject.ADULT}, ${CHILD}: ${ticketCountObject.CHILD}, ${INFANT}: ${ticketCountObject.INFANT}`);
-    TicketValidator.validateTicketRequests(accountId, ticketCountObject);
+    TicketValidator.validateRequest(accountId, ticketCountObject);
 
     this.#reserveSeats(accountId, ticketCountObject);
     this.#makePayment(accountId, ticketCountObject)
