@@ -3,7 +3,7 @@
 ### Application build
 
 This project uses [babel](https://babeljs.io/) to compile ES6 code into compatible JavaScript code for the Express server.
-The application build can be performed using the following command:
+The application can be built using the following command:
 
 `npm run build`
 
@@ -105,7 +105,8 @@ This was particularly important for the `TicketValidator` utility class, to ensu
 
 The [mocha][mocha] framework has been used for test execution, along with the [chai][chai] and [sinon-chai][sinon-chai] assertion libraries.
 [sinon][sinon] has been used to test that calls to the third-party APIs for seat booking and purchasing were made correctly.
-[chai-http][chai-http] has been used to test the server, to assert that correct responses and response codes are returned for different request types.
+
+[chai-http][chai-http] was used to test the server, to assert that correct responses and response codes are returned for different request types.
 
 Run the following command to execute all tests:
 
