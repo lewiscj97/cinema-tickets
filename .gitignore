@@ -2,3 +2,4 @@
 target
 /cinema-tickets-javascript/node_modules/
 /cinema-tickets-javascript/dist/
+/cinema-tickets-javascript/coverage/

@@ -119,7 +119,17 @@ Run the following command to execute all tests:
 [chai-http]: https://www.chaijs.com/plugins/chai-http/
 
 ## Code quality
+### ESLint
 
 ESLint is used to ensure that code is written to a good standard. I have used the DWP style guides (`"@dwp/eslint-config-base` and `@dwp/eslint-config-mocha`).
 The lint command can be executed using `npm run lint`. This mimics one of the code quality jobs that would take place in a CI/CD pipeline to ensure that
 code matched the departmental standards.
+
+### Code coverage
+
+[c8](https://www.npmjs.com/package/c8) is used to create a coverage report.
+The report highlights any lines, branches, and functions that have not been covered with unit tests.
+These are useful metrics, as they can be used to identify areas of the code that have not been fully tested.
+Since this service was implemented using TDD, the coverage is 100% for all files that have been implemented (`TicketService`, `TicketValidator`, `server`, `PurchaseTickets`, etc.).
+
+The coverage report can be created using the following command: `npm run test:cover`.
