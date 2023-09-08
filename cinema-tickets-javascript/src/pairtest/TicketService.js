@@ -21,7 +21,7 @@ export default class TicketService {
     this.#reservationService = reservationService ?? new SeatReservationService();
     this.#ticketPaymentService = ticketPaymentService ?? new TicketPaymentService();
     this.#logger = logger ?? log;
-  };
+  }
 
   purchaseTickets(accountId, ...ticketTypeRequests) {
     const ticketCountObject = this.#getTicketCountObject(ticketTypeRequests);

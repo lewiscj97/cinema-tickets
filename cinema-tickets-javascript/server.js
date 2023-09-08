@@ -15,15 +15,15 @@ const ticketService = new TicketService(new SeatReservationService(), new Ticket
 
 app.post('/tickets/purchase', (req, res) => {
   purchaseTicketsPost(ticketService, req, res, log);
-})
+});
 
 // Health check route
 app.get('/ping', (req, res) => {
   res.send('pong');
-})
+});
 
 app.listen(port, () => {
   log.info(`Application listening on port ${port}`);
-})
+});
 
 export default app;
