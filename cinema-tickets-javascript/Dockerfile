@@ -18,3 +18,4 @@ COPY --from=builder /usr/app ./app
 WORKDIR ./app
 
 ENTRYPOINT npm start
+USER node
