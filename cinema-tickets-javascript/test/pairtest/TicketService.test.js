@@ -25,10 +25,10 @@ describe('Ticket Service', () => {
       testService = new TicketService();
     });
 
-    it('should not throw an InvalidPurchaseException if account id is greater than 0', () => {
+    it('should not throw an invalid account ID exception if account id is greater than 0', () => {
       const accountId = 1;
 
-      expect(() => testService.purchaseTickets(accountId)).to.not.throw(InvalidPurchaseException);
+      expect(() => testService.purchaseTickets(accountId)).to.not.throw(INVALID_ACCOUNT_ID);
     });
 
     it('should throw an InvalidPurchaseException with correct message if account id is 0', () => {

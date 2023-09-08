@@ -114,5 +114,48 @@ describe('Ticket server', () => {
       const response = await chai.request(server).post('/tickets/purchase').send(request);
       expect(response.text).to.eq('Cannot purchase more infant tickets than adult tickets');
     });
+
+    it('should return correct error message when no tickets requested', async () => {
+      const request = {
+        accountId: 1,
+        tickets: []
+      };
+
+      const response = await chai.request(server).post('/tickets/purchase').send(request);
+      expect(response.text).to.eq('No tickets requested');
+    });
+
+    it('should return correct error response when no account ID passed', async () => {
+      const request = {
+        tickets: [
+          {
+            type: ADULT,
+            count: 1
+          },
+        ]
+      };
+
+      const response = await chai.request(server).post('/tickets/purchase').send(request);
+      expect(response.status).to.eq(400);
+      expect(response.text).to.eq('Account ID must be greater than 0');
+    });
+
+    it('should return correct error response when no tickets parameter present', async () => {
+      const request = {
+        accountId: 1
+      };
+
+      const response = await chai.request(server).post('/tickets/purchase').send(request);
+      expect(response.status).to.eq(400);
+      expect(response.text).to.eq('No tickets requested');
+    });
+
+    it('should return correct error response when request is null', async () => {
+      const request = null;
+
+      const response = await chai.request(server).post('/tickets/purchase').send(request);
+      expect(response.status).to.eq(400);
+      expect(response.text).to.eq('No tickets requested');
+    });
   });
 });

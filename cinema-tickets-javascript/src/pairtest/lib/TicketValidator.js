@@ -4,13 +4,18 @@ import {
   INVALID_ACCOUNT_ID,
   MORE_INFANTS_THAN_ADULTS,
   NO_ADULT_TICKET,
-  TOO_MANY_TICKETS
+  TOO_MANY_TICKETS,
+  NO_TICKETS_REQUESTED
 } from './Errors.js';
 
 export default class TicketValidator {
   static validateRequest(accountId, ticketCounts) {
     if (accountId <= 0) {
       throw new InvalidPurchaseException(INVALID_ACCOUNT_ID);
+    }
+
+    if (this.#calculateTotalNumberOfTickets(ticketCounts) === 0) {
+      throw new InvalidPurchaseException(NO_TICKETS_REQUESTED);
     }
 
     if (this.#calculateTotalNumberOfTickets(ticketCounts) > MAX_NUMBER_TICKETS) {
